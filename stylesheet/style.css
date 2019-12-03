@@ -1,14 +1,22 @@
 *{
 color: dimgray;
 font-family: "Comic Sans MS", cursive, sans-serif;
-/* background-color:pink; */
+
+
 }
-hr{
+button{background-color:rgb(218, 214, 205);}
+body{background-color:#a8d3f0;}
+.hrc{
 
     border-top: 1px dashed #8c8b8b;
     margin-right: 300px;
     margin-left: 300px;
 
+}
+
+.score {
+  /* display:inline; */
+text-align: center;
 }
 table{
 display:flex;
@@ -16,26 +24,156 @@ justify-content: center;
 align-content: center;
 
 }
+.center{
+
+    padding: 20%;
+}
 h1,h2 {
     text-align: center;
+    font: 150px;
+
 }
- tr ,td {
+ td {
     border: 1px solid;
-    width: 100px;
+    width: 300px;
     padding: 15px;
-    height: 100px;
+    height: 300px;
     text-align: center;
   }
   
   img{
 
-    width:90px;
+    width:120px;
 
 
   }
+  .game{
+display: flex;
+justify-content: center;
+align-items:center;
+
+  }
+  #player{
+
+
+    margin: 0 200px;
+  }
+
+  /* .game div{
+
+  justify-content: center;
+    align-items:center;
+
+  }  */
+  .button{
+padding: 5%;
+display: flex;
+justify-content: center;
+
+  }
+  .container{
+
+background: rgba(255, 255, 255, 0.6);
+padding: 50px;
+margin-right: 325px;
+margin-left: 325px;
+border-radius:5px ;
+  }
+.container2{
+    
+    border-radius:5px ;
+    background: rgba(255, 255, 255, 0.6);
+    margin-right: 250px;
+    margin-left: 250px;
+      }
+@media screen and (max-width:550px) {
+
+
+.hrc{
+    border-top: 1px dashed #8c8b8b;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+table{
+display:flex;
+justify-content: center;
+align-content: center;
+
+
+}
+h1,h2 {
+
+  font-size: 20px;
+}
+
+ td {
+    border: 1px solid;
+    width: 100px;
+    padding: 0;
+    height: 100px;
+    text-align: center;
+  }
+  
+  img{
+    width:50%;
+  }
+
   .button{
 
 display: flex;
 justify-content: center;
 
   }
+  .container{
+
+background: rgba(255, 255, 255, 0.6);
+padding: 0;
+margin-right: 2%;
+margin-left: 2%;
+border-radius:5px ;
+  }
+.container2{
+    
+    border-radius:5px ;
+    background: rgba(255, 255, 255, 0.6);
+    margin: 0 2%;
+      }
+
+      #player{
+
+
+        margin: 0 0px;
+      }
+    
+      } 
+      @media screen and (min-width:550px)  {
+
+        #player{
+
+
+          margin: 0 50px;
+        }
+        td {
+          border: 1px solid;
+          width: 150px;
+          padding: 0;
+          height: 150px;
+          text-align: center;
+        }
+        .container{
+
+            background: rgba(255, 255, 255, 0.6);
+            padding: 0;
+            margin-right: 5%;
+            margin-left: 5%;
+            border-radius:5px ;
+              }
+            .container2{
+                padding: 0;
+                border-radius:5px ;
+                background: rgba(255, 255, 255, 0.6);
+                margin: 0 2%;
+                  }
+      }
+
+      
