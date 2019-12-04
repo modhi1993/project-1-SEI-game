@@ -1,4 +1,4 @@
-declaring
+
 let current=false;
 let count=0;
 if(localStorage.length === 0 ){
