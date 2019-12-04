@@ -1,12 +1,22 @@
-
-
+declaring
 let current=false;
 let count=0;
-let score1 = 0;
-let score2 = 0;
-let name1=$('#user1').val() ;
-let name2= $('#user2').val() ;
+if(localStorage.length === 0 ){
+   score1=0;
+   localStorage.setItem("score1", score1)
+   score2=0;
+   localStorage.setItem("score2", score2);
+}
+else{
+    score1= localStorage.getItem("score1");
+    score2= localStorage.getItem("score2");  
+}
+    $('#scor1').html(`<p>${score1}</p>`);
+    $('#scor2').html(`<p>${score2}</p>`);
 
+// let name1=$('#').val() ;
+// let name2= ;
+// $('#').val()
 
 let table={
     cell1: "1",
@@ -55,20 +65,22 @@ let table={
             $(var3).css("background-color","lightgrey");
     },
     clicking:function(){
+
         count+= 1;
-         
-      
-        
         if (count%2 === 0) {
             current=false; }
         else
         current=true;
       
         if(current){
-        $("#player").html("<h2 id='winner'>player 2's turn</h2>");
+        $("#winner").html("<h2 >player 2's turn</h2>");
+        let audio = new Audio('../audio/click1.mp3');
+        audio.play();
         }
         else {
-        $("#player").html("<h2 id='winner'>player 1's turn</h2>");
+        $("#winner").html("<h2 >player 1's turn</h2>");
+        let audio = new Audio('../audio/click2.mp3');
+        audio.play();
         }
 
           let event1 = "#"+event.target.id;
@@ -83,44 +95,40 @@ let table={
         table[event.target.id] = String(current);
         // stopping the game after finding a winner
         if(table.count()){
-            $("#player").html("<h2>Congrats</h2>")
             $('td').off('click');
             // displaying the winner
             
             if(current === true){
-                 $("#winner").html("<h2>player1 is the winner</h2>")
+                 $("#winner").html("<h2>player1 is <br> the winner</h2>")
+                 let audio = new Audio('../audio/winning.mp3');
+                 audio.play();
                  score1++;
+                 localStorage.setItem("score1",score1);
+                 $('#scor1').html(`<p>${score1}</p>`);
+                 
+                 confetti.start()
+                 
+                 
+                 
                  }
             else{
-                $("#winner").html("<h2>player2 is the winner</h2>")
-                score2++;}
+                $("#winner").html("<h2>player2 is <br> the winner</h2>")
+                let audio = new Audio('../audio/winning.mp3');
+                audio.play();
+                score2++;
+                localStorage.setItem("score2",score2);
+                $('#scor2').html(`<p>${score2}</p>`);
+               
+                confetti.start()}
             }
         else if(count > 8){
                 $('td').off('click');
                 $("#winner").html("<h2>Tie</h2>")
-                $("#player").html("<h2>WOoOoOw</h2>")}
+                }
+                // $('#scor1').html(`<p>${score2}</p>`);
       },
 }
 
-
-
-$('#scor1').html(score1);
-       
-$('#scor2').html(score2);
-
-
-// $('td').click(function () {
-//     count+= 1;
-//     if (count%2 === 0) {
-//         current=false; }
-//     else
-//     current=true;
-//     if(current)
-//     $("#player").html("<h2 id='winner'>player 2's turn</h2>");
-//     else 
-//     $("#player").html("<h2 id='winner'>player 1's turn</h2>");
-   
-//   });
 
 $('td').on("click",table.clicking);
 
@@ -128,8 +136,8 @@ $('td').on("click",table.clicking);
     $('td').off()
     $('td').on("click",table.clicking);
     $('td').html("");
-    $("#player").html("<h2>player 1's turn</h2>");
-    $("#winner").html("<h2 >player1 vs player2</h2>");
+    $("#winner").html("<h2>player 1's turn</h2>");
+  
     table.cell1="1";
     table.cell2="2";
     table.cell3="3";
@@ -141,14 +149,29 @@ $('td').on("click",table.clicking);
     table.cell9="9";
     $('td').css("background-color","transparent");
     count = 0;
-    
+  
 $('#scor1').html(score1);
-       
 $('#scor2').html(score2);
     current=false;
+    confetti.stop()
+
    
   });
+  $(".clear").click(function(){
+    score2=0;
+    score1=0;
+    localStorage.setItem("score1", score1)
+    localStorage.setItem("score2", score2);
+      $('#scor1').html(score1);   
+      $('#scor2').html(score2);
+    })
+// $("#target").submit(function(){
 
+
+
+
+    
+// })
 
 
 // $("#cell1").click(function(){

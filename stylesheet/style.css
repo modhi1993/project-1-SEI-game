@@ -1,36 +1,22 @@
 *{
 color: dimgray;
 font-family: "Comic Sans MS", cursive, sans-serif;
-
+cursor:grab;
 
 }
-button{background-color:rgb(218, 214, 205);}
+
+button{background-color: rgba(255, 255, 255, 0.6);}
 body{background-color:#a8d3f0;}
-.hrc{
-
-    border-top: 1px dashed #8c8b8b;
-    margin-right: 300px;
-    margin-left: 300px;
-
-}
-
-.score {
-  /* display:inline; */
-text-align: center;
-}
 table{
-display:flex;
-justify-content: center;
-align-content: center;
-
-}
-.center{
-
-    padding: 20%;
-}
-h1,h2 {
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  
+  }
+  h1,h2 {
     text-align: center;
-    font: 150px;
+    font: 100px;
+    padding: 0;
 
 }
  td {
@@ -42,35 +28,50 @@ h1,h2 {
   }
   
   img{
-
     width:120px;
-
-
   }
+  .game img{
+    width:100px;
+    margin: 0 50px;
+  }
+.hrc{
+
+    border-top: 1px dashed #8c8b8b;
+    margin-right: 300px;
+    margin-left: 300px;
+      padding: 0;
+}
+
+.score {
+  /* display:inline; */
+text-align: center;
+}
+
+.center{
+
+    padding: 20%;
+}
+
   .game{
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items:center;
 
   }
-  #player{
 
-
-    margin: 0 200px;
-  }
-
-  /* .game div{
-
-  justify-content: center;
-    align-items:center;
-
-  }  */
   .button{
-padding: 5%;
+padding: 1%;
 display: flex;
 justify-content: center;
-
+justify-content: space-around;
   }
+  .button2{
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+   
+      }
   .container{
 
 background: rgba(255, 255, 255, 0.6);
@@ -79,16 +80,17 @@ margin-right: 325px;
 margin-left: 325px;
 border-radius:5px ;
   }
-.container2{
-    
-    border-radius:5px ;
-    background: rgba(255, 255, 255, 0.6);
-    margin-right: 250px;
-    margin-left: 250px;
+
+
+      .clear{
+        padding: 6px;
       }
 @media screen and (max-width:550px) {
 
-
+  #winner {
+   
+    margin: 0 ;
+  }
 .hrc{
     border-top: 1px dashed #8c8b8b;
     margin-right: 10%;
@@ -118,12 +120,8 @@ h1,h2 {
     width:50%;
   }
 
-  .button{
 
-display: flex;
-justify-content: center;
 
-  }
   .container{
 
 background: rgba(255, 255, 255, 0.6);
@@ -132,27 +130,25 @@ margin-right: 2%;
 margin-left: 2%;
 border-radius:5px ;
   }
-.container2{
-    
-    border-radius:5px ;
-    background: rgba(255, 255, 255, 0.6);
-    margin: 0 2%;
-      }
-
       #player{
-
 
         margin: 0 0px;
       }
+      .game img{
+        
+        margin: 0px;
+      }
     
+      .game{
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        
+          }
       } 
       @media screen and (min-width:550px)  {
 
-        #player{
-
-
-          margin: 0 50px;
-        }
+       
         td {
           border: 1px solid;
           width: 150px;
@@ -168,12 +164,12 @@ border-radius:5px ;
             margin-left: 5%;
             border-radius:5px ;
               }
-            .container2{
-                padding: 0;
-                border-radius:5px ;
-                background: rgba(255, 255, 255, 0.6);
-                margin: 0 2%;
-                  }
+              .game img{
+        
+                margin: 0px;
+              }
+            
+          
       }
 
       
