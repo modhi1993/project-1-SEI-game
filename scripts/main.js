@@ -1,6 +1,7 @@
 
 let current=false;
 let count=0;
+// checking for stored values
 if(localStorage.length === 0 ){
    score1=0;
    localStorage.setItem("score1", score1)
@@ -11,13 +12,11 @@ else{
     score1= localStorage.getItem("score1");
     score2= localStorage.getItem("score2");  
 }
+// displaying scores
     $('#scor1').html(`<p>${score1}</p>`);
     $('#scor2').html(`<p>${score2}</p>`);
 
-// let name1=$('#').val() ;
-// let name2= ;
-// $('#').val()
-
+// object of cells with reltad methods
 let table={
     cell1: "1",
     cell2: "2",
@@ -29,7 +28,8 @@ let table={
     cell8: "8",
     cell9: "9",
     count: function(){
-  
+//   this method check for a winning situation and returns true if its available and false otherwise
+// it changes the background of the winning cells as well by calling a changing method
         if (table['cell1'] === table['cell2'] && table['cell2'] === table['cell3']){
             this.changeCss("#cell1","#cell2","#cell3");
             return true;}
@@ -60,18 +60,21 @@ let table={
 
     },
     changeCss :function(var1,var2,var3){
+        // changing the winning celss background
         $(var1).css("background-color","lightgrey");
             $(var2).css("background-color","lightgrey");
             $(var3).css("background-color","lightgrey");
     },
     clicking:function(){
-
+// each click on the game grid will lead to excuting this method
+// setting a counter for the number of clicks
         count+= 1;
+        // the players turn is based on the counter even numbers are for player 1 and odd numbers are for player two
         if (count%2 === 0) {
             current=false; }
         else
         current=true;
-      
+    //   this if statment decise what heading to show and what audio to play
         if(current){
         $("#winner").html("<h2 >player 2's turn</h2>");
         let audio = new Audio('../audio/click1.mp3');
@@ -82,7 +85,7 @@ let table={
         let audio = new Audio('../audio/click2.mp3');
         audio.play();
         }
-
+    //   the folloing lines disable the cell clicking and displayes the relevant image
           let event1 = "#"+event.target.id;
         $(event1).off('click');
 
@@ -91,9 +94,10 @@ let table={
         else 
         $(event1).html("<img src='../images/heart.png' alt='' >");
 
-    
+    // the following linesgive values to cells to help find a winner
         table[event.target.id] = String(current);
-        // stopping the game after finding a winner
+        // stopping the game after finding a winner and updating the scores ,displaying
+        // confetti , playing audio or showing a tie message
         if(table.count()){
             $('td').off('click');
             // displaying the winner
@@ -122,6 +126,7 @@ let table={
                 confetti.start()}
             }
         else if(count > 8){
+            // tie situation
                 $('td').off('click');
                 $("#winner").html("<h2>Tie</h2>")
                 }
@@ -129,9 +134,9 @@ let table={
       },
 }
 
-
+// calling the method after each click
 $('td').on("click",table.clicking);
-
+// resetting values and the whole game 
   $(".reset").click(function(){
     $('td').off()
     $('td').on("click",table.clicking);
@@ -157,6 +162,7 @@ $('#scor2').html(score2);
 
    
   });
+//   clearing local storaged games
   $(".clear").click(function(){
     score2=0;
     score1=0;
@@ -165,122 +171,6 @@ $('#scor2').html(score2);
       $('#scor1').html(score1);   
       $('#scor2').html(score2);
     })
-// $("#target").submit(function(){
-
-
-
-
-    
-// })
-
-
-// $("#cell1").click(function(){
-//     $('#cell1').off('click');
-//     if(current)
-//     $("#cell1").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell1").html("<img src='../images/heart.png' alt='' >");
-
-//     table['cell1'] = String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell2").click(function(){
-//     $('#cell2').off('click');
-//     if(current)
-//     $("#cell2").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell2").html("<img src='../images/heart.png' alt='' >");
-//     table['cell2'] =String(current);
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-      
-    
-//   });
-//   $("#cell3").click(function(){
-//     $('#cell3').off('click');
-//     if(current)
-//     $("#cell3").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell3").html("<img src='../images/heart.png' alt='' >");
-//     table['cell3'] = String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell4").click(function(){
-//     $('#cell4').off('click');
-//     if(current)
-//     $("#cell4").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell4").html("<img src='../images/heart.png' alt='' >");
-//     table['cell4'] = String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell5").click(function(){
-//     $('#cell5').off('click');
-//     if(current)
-//     $("#cell5").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell5").html("<img src='../images/heart.png' alt='' >");
-//     table['cell5']= String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell6").click(function(){
-//     $('#cell6').off('click');
-//     if(current)
-//     $("#cell6").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell6").html("<img src='../images/heart.png' alt='' >");
-//     table['cell6']= String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell7").click(function(){
-//     $('#cell7').off('click');
-//     if(current)
-//     $("#cell7").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell7").html("<img src='../images/heart.png' alt='' >");
-//     table['cell7']= String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell8").click(function(){
-//     $('#cell8').off('click');
-//     if(current)
-//     $("#cell8").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell8").html("<img src='../images/heart.png' alt='' >");
-//     table['cell8']= String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-//   $("#cell9").click(function(){
-//     $('#cell9').off('click');
-//     if(current)
-//     $("#cell9").html("<img src='../images/star.png' alt='' >");
-//     else 
-//     $("#cell9").html("<img src='../images/heart.png' alt='' >");
-//     table['cell9']= String(current);
-//     table.count();
-//     if (table.count())
-//     $("#winner").html("<h2>you are a star</h2>");
-//   });
-
-
-
-
-
-  
 
 
 
