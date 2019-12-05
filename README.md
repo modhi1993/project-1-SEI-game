@@ -2,7 +2,7 @@
 
 
 
-# Project <Tic tac toe>
+# Project Tic tac toe
 This project is basically a tic tac toe game. the stars and hearts are the x and o . scores are stored lacally in the browser and could be cleared .
 
 ## My Project Deployment
