@@ -24,7 +24,9 @@ https://modhi1993.github.io/project-1-SEI-game/
 [jquery](https://code.jquery.com/jquery-3.4.1.min.js)
 
 [wireframe](https://www.canva.com/design/DADsvtEvA-w/share/preview?token=tAJ4KYyxXodVKpA_LhaV9A&role=EDITOR&utm_content=DADsvtEvA-w&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+
 [audio](http://soundbible.com/)
+
 [javascript confetti](https://www.cssscript.com/confetti-falling-animation/)
 
 ## Planning and Development Process
