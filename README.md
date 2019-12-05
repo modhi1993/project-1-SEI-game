@@ -73,3 +73,5 @@ $('#scor2').html(score2);
 this function was called everytime a player hit the reset button. It makes sure all the cells are disabled from being clicked .It switches them on again. and it resets all the variables to thier first values .It displayes the scores again and switch the turn to player number 1 ,finally it stops the confetti effect.
 ## Challenges
 The most challenging part of the whole thing was making the responsive design. css is apain tbh.
+## Unsolved problems which would be fixed in future iterations.
+not problems but extra features like entering your name and playing against the computer ,changing themes , adding images and playing through a network.
